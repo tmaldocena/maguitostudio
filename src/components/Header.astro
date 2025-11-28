@@ -1,0 +1,199 @@
+---
+// src/components/Header.astro
+---
+
+<header
+  class="fixed md:top-6 top-4 left-1/2 l transform -translate-x-1/2 w-3/4 md:w-[calc(100%-3rem)] max-w-[1300px] z-50 py-2 px-10 bg-(--cream) rounded-[100px] border-3 border-(--dark) shadow-[6px_6px_0_var(--dark)] animate-slideDown"
+>
+  <nav class="flex justify-between items-center">
+    <div
+      class="logo font-display md:text-[1.8rem] text-lg text-(--dark) tracking-normal"
+    >
+      Maguito Studio
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links hidden md:flex gap-10 list-none font-text">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div
+      class="header-contact hidden md:flex md:gap-4 font-semibold text-(--dark) text-[2rem]"
+    >
+      <a href="mailto:maguito.std@gmail.com" title="Mi Correo"
+        ><img src="./sobre.svg" class="w-8 h-8 text-(--dark)" /></a
+      >
+      <a
+        href="https://wa.link/wo65t7"
+        target="_blank"
+        rel="nonrefferer"
+        title="Mi Whatsapp"
+        ><img src="./whatsapp.svg" class="w-8 h-8 text-(--dark)" /></a
+      >
+    </div>
+
+    <!-- Mobile Hamburger Menu -->
+    <button
+      id="hamburger"
+      class="md:hidden flex flex-col gap-1.5 w-6 h-6 relative"
+    >
+      <span
+        class="w-full h-2 bg-(--dark) rounded transition-all duration-300 hamburger-line"
+      ></span>
+      <span
+        class="w-full h-2 bg-(--dark) rounded transition-all duration-300 hamburger-line"
+      ></span>
+      <span
+        class="w-full h-2 bg-(--dark) rounded transition-all duration-300 hamburger-line"
+      ></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="hidden absolute top-full left-0 right-0 mt-4 mx-4 bg-(--cream) rounded-[30px] border-3 border-(--dark) shadow-[6px_6px_0_var(--dark)] p-6"
+  >
+    <ul class="flex flex-col gap-6 list-none font-text">
+      <li>
+        <a
+          href="#inicio"
+          class="text-(--dark) font-text text-lg hover:text-(--orange) transition-colors"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="#servicios"
+          class="text-(--dark) font-text text-lg hover:text-(--orange) transition-colors"
+          >Servicios</a
+        >
+      </li>
+      <li>
+        <a
+          href="#portfolio"
+          class="text-(--dark) font-text text-lg hover:text-(--orange) transition-colors"
+          >Portfolio</a
+        >
+      </li>
+      <li>
+        <a
+          href="#nosotros"
+          class="text-(--dark) font-text text-lg hover:text-(--orange) transition-colors"
+          >Nosotros</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="text-(--dark) font-text text-lg hover:text-(--orange) transition-colors"
+          >Contacto</a
+        >
+      </li>
+    </ul>
+    <div class="mt-6 pt-6 border-t-2 flex flex-col border-(--dark)">
+      <a
+        href="mailto:maguito.std@gmail.com"
+        title="Mi Correo"
+        class="flex flex-row items-center gap-2 mb-4"
+      >
+        <img src="./sobre.svg" class="w-8 h-8 text-(--dark)" />
+        <span>Correo</span>
+      </a>
+      <br />
+      <a
+        href="https://wa.link/wo65t7"
+        target="_blank"
+        rel="nonrefferer"
+        title="Mi Whatsapp"
+        class="flex flex-row items-center gap-2 mb-4"
+        ><img src="./whatsapp.svg" class="w-8 h-8 text-(--dark)" />
+        <span>Whatsapp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  @keyframes slideDown {
+    from {
+      transform: translateX(-50%) translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.6s ease-out;
+  }
+
+  .nav-links a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--orange);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  #mobileMenu.active {
+    display: block;
+  }
+
+  #hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px) scale(0.8);
+  }
+
+  #hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px) scale(0.8);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileLinks = mobileMenu?.querySelectorAll("a");
+
+  hamburger?.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileMenu?.classList.toggle("hidden");
+    mobileMenu?.classList.toggle("active");
+  });
+
+  // Cerrar menú al hacer clic en un link
+  mobileLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger?.classList.remove("active");
+      mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.remove("active");
+    });
+  });
+</script>

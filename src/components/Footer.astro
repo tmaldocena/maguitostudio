@@ -1,0 +1,174 @@
+<footer class="w-full bg-gray-900 text-gray-100 py-16 px-8">
+  <div class="max-w-6xl mx-auto flex flex-col items-center gap-12">
+    <!-- Ilustración + texto -->
+    <div class="flex flex-col items-center gap-6">
+      <!-- Reemplazar el cuadrado gris por waving.svg -->
+      <img
+        src="./maguito-thumb.svg"
+        alt="Maguito saludando"
+        class="w-48 h-48 object-contain animate-bounce-custom"
+      />
+      <img
+        src="./maguito-logotipo-negative.svg"
+        alt="Maguito Studio Logo"
+        class="max-w-[300px] w-full animate-fadeInUp"
+      />
+
+      <h2 class="text-xl md:text-2xl font-display">
+        Diseño con un toque mágico
+      </h2>
+    </div>
+
+    <!-- Flecha hacia arriba que scrollea hasta arriba -->
+    <button
+      onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+      class="animate-bounce mt-4 cursor-pointer"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-10 h-10 text-(--yellow)"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 19V5m0 0l-7 7m7-7l7 7"></path>
+      </svg>
+    </button>
+
+    <!-- Parte inferior: círculos + copyright -->
+    <div
+      class="w-full flex md:flex-row flex-col justify-between items-center mt-4"
+    >
+      <!-- botones circulares -->
+      <div class="flex gap-6">
+        <a
+          href="https://www.instagram.com/maguito.std"
+          target="_blank"
+          rel="nonrefferer"
+          class="social-links footer-links w-14 h-14 rounded-full bg-(--yellow) flex items-center justify-center text-gray-900 font-bold text-xl shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
+        >
+          <img src="./instagram.svg" alt="Instagram" class="w-6 h-6" />
+        </a>
+
+        <a
+          href="https://wa.link/wo65t7"
+          target="_blank"
+          rel="nonrefferer"
+          class="w-14 h-14 rounded-full bg-(--secondary) flex items-center justify-center text-gray-900 font-bold text-xl shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
+        >
+          <img src="./whatsapp.svg" alt="Whatsapp" class="w-6 h-6" />
+        </a>
+
+        <a
+          href="https://www.behance.net/MaguitoStudio"
+          target="_blank"
+          rel="nonrefferer"
+          class="w-14 h-14 rounded-full bg-(--orange) flex items-center justify-center text-gray-900 font-bold text-xl shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
+        >
+          <img src="./behance.svg" alt="Behance" class="w-6 h-6" />
+        </a>
+      </div>
+
+      <!-- copyright -->
+      <p class="text-lg font-text md:text-left text-center opacity-75">
+        Maguito Studio - 2025 © Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 4rem 5% 2rem;
+    background: var(--dark);
+    color: white;
+  }
+
+  .footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .social-links a {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 3px solid var(--dark);
+    font-size: 1.5rem;
+  }
+
+  .social-links a:nth-child(1) {
+    background: var(--pink);
+  }
+  .social-links a:nth-child(2) {
+    background: var(--blue);
+  }
+  .social-links a:nth-child(3) {
+    background: var(--orange);
+  }
+  .social-links a:nth-child(4) {
+    background: var(--yellow);
+  }
+
+  .social-links a:hover {
+    transform: translateY(-8px) rotate(10deg);
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-bounce-custom {
+    animation: bounce 2s ease-in-out infinite;
+  }
+</style>

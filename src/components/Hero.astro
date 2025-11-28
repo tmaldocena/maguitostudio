@@ -1,0 +1,394 @@
+<section
+  id="inicio"
+  class="relative w-full overflow-hidden min-h-screen flex items-center justify-center px-[5%] bg-(--secondary)"
+>
+  <!-- blobs -->
+  <div
+    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
+    style="width:500px;height:500px;top:10%;left:-10%;background:var(--orange);"
+  >
+  </div>
+  <div
+    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
+    style="width:400px;height:400px;bottom:10%;right:-5%;background:var(--cream);animation-delay:-5s;"
+  >
+  </div>
+  <div
+    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
+    style="width:350px;height:350px;top:50%;right:20%;background:var(--pink);animation-delay:-10s;"
+  >
+  </div>
+
+  <div
+    class="hero-content flex flex-row items-center justify-center gap-32 z-10 w-full max-w-[1400px]"
+  >
+    <!-- Character (izquierda) -->
+    <div
+      class="w-full max-w-[600px] h-[500px] flex items-center justify-center relative z-10"
+    >
+      <div
+        class="w-[400px] h-[400px] rounded-full bg-cream flex items-center justify-center overflow-visible"
+      >
+        <img
+          src="./walkingN.svg"
+          alt="Maguito Character"
+          class="w-[70%] animate-bounce"
+        />
+      </div>
+    </div>
+
+    <!-- Logo + botones (derecha) -->
+    <div class="flex flex-col items-center gap-4 px-8">
+            <p
+        class="font-text text-(--dark) max-w-xl mx-auto text-xl leading-relaxed"
+      >
+        Bienvenido a
+      </p>
+      <img
+        src="./maguito-logotipo.svg"
+        alt="Maguito Studio Logo"
+        class="md:max-w-[360px] max-w-[180px] w-full animate-fadeInUp"
+      />
+      <p
+        class="font-text text-(--dark) max-w-xl mx-auto text-xl leading-relaxed"
+      >
+        Un estudio creativo especializado en diseño gráfico, branding,
+        diseño web. Creamos marcas con personalidad y un toque
+        mágico.
+      </p>
+      <div class="flex gap-4 mt-6">
+        <a
+          href="#servicios"
+          class="px-12 py-12 text-xl inline-flex items-center justify-center whitespace-nowrap rounded-4xl border-4 shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
+          style="background:var(--yellow); color:var(--dark); border-color:var(--dark); font-family:var(--font-display); padding: 8px 32px;"
+        >
+          Servicios
+        </a>
+
+        <a
+          href="#contacto"
+          class="text-xl inline-flex items-center justify-center whitespace-nowrap rounded-4xl px-8 py-4 border-4 shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
+          style="background:var(--pink); color:var(--cream); border-color:var(--dark); font-family:var(--font-display); padding: 8px 32px;"
+        >
+          Contacto
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- floor -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 w-full md:h-[248px] h-auto">
+    <img src="./floor.svg" alt="Walking Path" class="block w-full h-auto" />
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(50px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-30px, 30px) scale(0.9);
+    }
+  }
+  .animate-float {
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-bounce {
+    animation: bounce 3s ease-in-out infinite;
+  }
+</style>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 5% 0;
+    background: var(--blue);
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--orange);
+    top: 10%;
+    left: -10%;
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--cream);
+    bottom: 10%;
+    right: -5%;
+    animation-delay: -5s;
+  }
+
+  .blob-3 {
+    width: 350px;
+    height: 350px;
+    background: var(--pink);
+    top: 50%;
+    right: 20%;
+    animation-delay: -10s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(50px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-30px, 30px) scale(0.9);
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    justify-content: center;
+  }
+
+  .hero-btn {
+    background: white;
+    border: 4px solid var(--dark);
+    font-family: "Fredoka One", cursive;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    box-shadow: 8px 8px 0 var(--dark);
+  }
+
+  .hero-btn.primary {
+    background: var(--yellow);
+    color: var(--dark);
+  }
+
+  .hero-btn.secondary {
+    background: var(--pink);
+    color: var(--cream);
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-15px) rotate(-2deg);
+    box-shadow: 12px 12px 0 var(--dark);
+  }
+
+  /* Responsive: stack buttons on small screens */
+  @media (max-width: 900px) {
+    .hero-buttons {
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .hero-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem; /* Add space between character and logo */
+    z-index: 1;
+  }
+
+  /* Adjust logo and character sizing for side-by-side layout */
+  .brand-logo {
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  .character-container {
+    max-width: 300px;
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  /* Responsive: stack on small screens */
+  @media (max-width: 900px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      margin-top: 6rem;
+      gap: 0rem;
+    }
+    .character-container {
+      height: 200px;
+      max-width: 150px;
+    }
+    .brand-logo {
+      max-width: 300px;
+    }
+  }
+
+  .maguito {
+    width: 100%;
+    height: auto;
+    animation: bounce 3s ease-in-out infinite;
+    padding-bottom: 20px;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Contenedor del personaje */
+  .character-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ondas detrás del círculo - ahora ocupan todo el ancho */
+  .wave-dark {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    z-index: 1;
+  }
+
+  .wave-orange {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    z-index: 0;
+  }
+
+  .character-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background: var(--cream);
+    border-radius: 50%;
+    border: 5px solid var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: visible;
+  }
+
+  /* SVG del maguito */
+  .maguito-svg {
+    width: 70%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  .maguito-svg img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .character-circle {
+      width: 250px;
+      height: 250px;
+    }
+
+    .character-container {
+      height: 350px;
+    }
+
+    .wave-dark,
+    .wave-orange {
+      width: 200%;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+// src/components/Portfolio.astro
+---
+
+<section class="py-32 px-[5%] bg-(--cream) fade-in font-text" id="portfolio">
+  <div class="text-center mb-16">
+    <h2 class="font-display text-[clamp(2.5rem,5vw,4rem)] font-normal mb-4 text-(--dark)">
+      Portfolio
+    </h2>
+    <p class="text-(--dark) text-[1.3rem] opacity-70 font-medium">
+      Últimos proyectos trabajados para nuestros clientes.
+    </p>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    
+    <a href="https://www.instagram.com/maguito.std/p/DQNI6kGErEk/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
+      <!-- Background pattern animado -->
+      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./esteban-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
+      
+      <!-- Overlay oscuro -->
+      <div class="absolute inset-0 bg-linear-to-br from-(--secondary) to-(--orange) opacity-80"></div>
+      
+      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
+      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
+        <img src="./esteban-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
+        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
+          Lic. Esteban C.
+        </h3>
+        <p class="text-(--cream) text-[1.1rem] font-text text-center">
+          Branding
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/maguito.std/p/DPXGlqlEWDa/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
+      <!-- Background pattern animado -->
+      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./del-pilar-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
+      
+      <!-- Overlay oscuro -->
+      <div class="absolute inset-0 bg-linear-to-br from-(--orange) to-var(--pink) opacity-80"></div>
+      
+      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
+      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
+        <img src="./del-pilar-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
+        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
+          Studio Del Pilar
+        </h3>
+        <p class="text-(--cream) text-[1.1rem] font-text text-center">
+          Branding
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/maguito.std/p/DNlc9izx80U/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
+      <!-- Background pattern animado -->
+      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./laplume-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
+      
+      <!-- Overlay oscuro -->
+      <div class="absolute inset-0 bg-linear-to-br from-(--pink) to-(--orange) opacity-80"></div>
+      
+      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
+      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
+        <img src="./laplume-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
+        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
+          Editorial La Plume
+        </h3>
+        <p class="text-(--cream) text-[1.1rem] font-text text-center">
+          Branding
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/maguito.std/p/DOEnxRWkZ67/" target="_blank"  class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
+      <!-- Background pattern animado -->
+      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./massa-vera-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
+      
+      <!-- Overlay oscuro -->
+      <div class="absolute inset-0 bg-linear-to-br from-(--yellow) to-(--secondary) opacity-80"></div>
+      
+      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
+      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
+        <img src="./massa-vera-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
+        <h3 class="font-display text-2xl mb-2 text-(--cream) font-normal text-center">
+          La Massa Vera
+        </h3>
+        <p class="text-(--cream)  text-[1.1rem] font-medium text-center">
+          Branding
+        </p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes slide-bg {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200px 200px;
+    }
+  }
+
+  .animate-slide-bg {
+    animation: slide-bg 3s linear infinite;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
