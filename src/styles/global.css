@@ -35,10 +35,14 @@
 
 body {
   font-family: 'Teachers Variable', sans-serif;
-  background: var(--cream);
+  background: var(--cream) !important;
   color: var(--dark);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+html, :root {
+  color-scheme: light !important;
 }
 
 html {
