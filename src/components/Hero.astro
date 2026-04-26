@@ -1,394 +1,645 @@
+---
+// Hero.astro — Maguito Studio
+// Requiere: npm install gsap
+---
+
 <section
-  id="inicio"
-  class="relative w-full overflow-hidden min-h-screen flex items-center justify-center px-[5%] bg-(--secondary)"
+    id="inicio"
+    aria-label="Maguito Studio — Diseño y desarrollo web"
+    class="hero-section"
 >
-  <!-- blobs -->
-  <div
-    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
-    style="width:500px;height:500px;top:10%;left:-10%;background:var(--orange);"
-  >
-  </div>
-  <div
-    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
-    style="width:400px;height:400px;bottom:10%;right:-5%;background:var(--cream);animation-delay:-5s;"
-  >
-  </div>
-  <div
-    class="absolute rounded-full blur-[80px] opacity-30 pointer-events-none animate-float"
-    style="width:350px;height:350px;top:50%;right:20%;background:var(--pink);animation-delay:-10s;"
-  >
-  </div>
+    <!-- Dot grid canvas (fondo animado) -->
+    <canvas id="dot-grid" aria-hidden="true"></canvas>
 
-  <div
-    class="hero-content flex flex-row items-center justify-center gap-32 z-10 w-full max-w-[1400px]"
-  >
-    <!-- Character (izquierda) -->
-    <div
-      class="w-full max-w-[600px] h-[500px] flex items-center justify-center relative z-10"
-    >
-      <div
-        class="w-[400px] h-[400px] rounded-full bg-cream flex items-center justify-center overflow-visible"
-      >
-        <img
-          src="./walkingN.svg"
-          alt="Maguito Character"
-          class="w-[70%] animate-bounce"
-        />
-      </div>
+    <!-- Formas decorativas flotantes -->
+    <div class="shape shape-star" aria-hidden="true">✦</div>
+    <div class="shape shape-circle" aria-hidden="true"></div>
+    <div class="shape shape-ring" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+        <!-- COLUMNA IZQUIERDA: Texto -->
+        <div class="hero-text">
+            <div class="hero-badge" id="hero-badge">
+                <span class="badge-dot"></span>
+                Diseño · Código · Resultados
+            </div>
+
+            <h1 class="hero-headline" id="hero-headline">
+                <span class="line">Tu idea,</span>
+                <span class="line"><em class="accent-box">diseñada</em></span>
+                <span class="line">y en vivo.</span>
+            </h1>
+
+            <p class="hero-sub" id="hero-sub">
+                Branding, UI/UX y frontend bajo un mismo criterio estético. Sin
+                intermediarios, sin teléfono descompuesto.
+            </p>
+
+            <div class="hero-ctas" id="hero-ctas">
+                <a
+                    href="#servicios"
+                    class="btn btn-primary"
+                    aria-label="Ver servicios de Maguito Studio"
+                >
+                    Ver servicios
+                </a>
+                <a
+                    href="#contacto"
+                    class="btn btn-secondary"
+                    aria-label="Contactar a Maguito Studio por WhatsApp"
+                >
+                    Hablemos
+                </a>
+            </div>
+
+            <div class="hero-stats" id="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">+40</span>
+                    <span class="stat-label">proyectos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-label">años de experiencia</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">2 en 1</span>
+                    <span class="stat-label">diseño + código</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Mascota -->
+        <div class="hero-visual" id="hero-visual">
+            <!-- Tags flotantes -->
+            <div class="floating-tag tag-brand" id="tag-1" aria-hidden="true">
+                ✦ Branding
+            </div>
+            <div class="floating-tag tag-dev" id="tag-2" aria-hidden="true">
+                &lt;/&gt; Frontend
+            </div>
+            <div class="floating-tag tag-ui" id="tag-3" aria-hidden="true">
+                UI/UX Design
+            </div>
+
+            <!-- Mascota -->
+            <div class="mascot-wrap" id="mascot-wrap">
+                <img
+                    src="/walkingN.svg"
+                    alt="Mascota de Maguito Studio caminando"
+                    class="mascot-img"
+                    fetchpriority="high"
+                    loading="eager"
+                    width="320"
+                    height="420"
+                />
+            </div>
+        </div>
     </div>
 
-    <!-- Logo + botones (derecha) -->
-    <div class="flex flex-col items-center gap-4 px-8">
-            <p
-        class="font-text text-(--dark) max-w-xl mx-auto text-xl leading-relaxed"
-      >
-        Bienvenido a
-      </p>
-      <img
-        src="./maguito-logotipo.svg"
-        alt="Maguito Studio Logo"
-        class="md:max-w-[360px] max-w-[180px] w-full animate-fadeInUp"
-      />
-      <p
-        class="font-text text-(--dark) max-w-xl mx-auto text-xl leading-relaxed"
-      >
-        Un estudio creativo especializado en diseño gráfico, branding,
-        diseño web. Creamos marcas con personalidad y un toque
-        mágico.
-      </p>
-      <div class="flex gap-4 mt-6">
-        <a
-          href="#servicios"
-          class="px-12 py-12 text-xl inline-flex items-center justify-center whitespace-nowrap rounded-4xl border-4 shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
-          style="background:var(--yellow); color:var(--dark); border-color:var(--dark); font-family:var(--font-display); padding: 8px 32px;"
+    <!-- Ola inferior -->
+    <div class="hero-wave" aria-hidden="true">
+        <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
         >
-          Servicios
-        </a>
-
-        <a
-          href="#contacto"
-          class="text-xl inline-flex items-center justify-center whitespace-nowrap rounded-4xl px-8 py-4 border-4 shadow-[8px_8px_0_var(--dark)] transition-transform duration-300 transform hover:-translate-y-4 hover:-rotate-2"
-          style="background:var(--pink); color:var(--cream); border-color:var(--dark); font-family:var(--font-display); padding: 8px 32px;"
-        >
-          Contacto
-        </a>
-      </div>
+            <path
+                d="M0,45 Q360,0 720,40 Q1080,78 1440,28 L1440,80 L0,80 Z"
+                fill="var(--orange)"></path>
+            <path
+                d="M0,45 Q360,0 720,40 Q1080,78 1440,28"
+                fill="none"
+                stroke="var(--dark)"
+                stroke-width="3.5"></path>
+        </svg>
     </div>
-  </div>
-
-  <!-- floor -->
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 w-full md:h-[248px] h-auto">
-    <img src="./floor.svg" alt="Walking Path" class="block w-full h-auto" />
-  </div>
 </section>
 
 <style>
-  @keyframes float {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
+    /* ── Sección principal ── */
+    .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background: var(--blue);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    33% {
-      transform: translate(50px, -50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-30px, 30px) scale(0.9);
-    }
-  }
-  .animate-float {
-    animation: float 20s ease-in-out infinite;
-  }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+    /* ── Canvas dot grid ── */
+    #dot-grid {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fadeInUp {
-    animation: fadeInUp 0.8s ease-out both;
-  }
 
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
+    /* ── Formas decorativas ── */
+    .shape {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.18;
     }
-    50% {
-      transform: translateY(-10px);
+
+    .shape-star {
+        font-size: 48px;
+        color: var(--dark);
+        top: 12%;
+        right: 8%;
+        animation: spin-slow 20s linear infinite;
     }
-  }
-  .animate-bounce {
-    animation: bounce 3s ease-in-out infinite;
-  }
+
+    .shape-circle {
+        width: 80px;
+        height: 80px;
+        border: 5px solid var(--dark);
+        border-radius: 50%;
+        bottom: 22%;
+        left: 8%; /* Lo alejamos un poco del borde izquierdo */
+        animation: float-shape 8s ease-in-out infinite;
+    }
+
+    .shape-ring {
+        width: 48px;
+        height: 48px;
+        border: 4px solid var(--orange);
+        border-radius: 50%;
+        top: 30%;
+        left: 10%; /* Lo alejamos un poco del borde izquierdo */
+        animation: float-shape 6s ease-in-out infinite reverse;
+    }
+
+    @keyframes spin-slow {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes float-shape {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-16px);
+        }
+    }
+
+    /* ── Layout interior ── */
+    .hero-inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        width: 100%;
+        max-width: 1300px;
+        padding: 120px 5% 120px;
+        gap: 40px;
+    }
+
+    /* ── Columna texto ── */
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* Badge */
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: white;
+        border: 2.5px solid var(--dark);
+        border-radius: 100px;
+        padding: 7px 18px;
+        font-family: var(--font-display);
+        font-size: 14px;
+        color: var(--dark);
+        width: fit-content;
+        box-shadow: 3px 3px 0 var(--dark);
+        opacity: 0;
+    }
+
+    .badge-dot {
+        width: 9px;
+        height: 9px;
+        background: var(--orange);
+        border-radius: 50%;
+        border: 1.5px solid var(--dark);
+        flex-shrink: 0;
+    }
+
+    /* Headline */
+    .hero-headline {
+        font-family: var(--font-display);
+        font-size: clamp(44px, 6vw, 72px);
+        line-height: 1.05;
+        color: var(--dark);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .hero-headline .line {
+        display: block;
+        /* Quitamos overflow: hidden para que no corte sombras ni bordes */
+        overflow: visible;
+        padding-bottom: 10px; /* Espacio extra para la sombra del accent-box */
+        margin-bottom: -10px;
+    }
+
+    .accent-box {
+        display: inline-block;
+        background: var(--orange);
+        color: white;
+        font-style: normal;
+        border: 3.5px solid var(--dark);
+        border-radius: 16px;
+        padding: 8px 24px; /* Aumentamos padding lateral para que no toque los bordes */
+        box-shadow: 5px 5px 0 var(--dark);
+        line-height: 1.15;
+        margin: 5px 0; /* Margen para que no se pegue a las otras líneas */
+    }
+
+    /* Subtítulo */
+    .hero-sub {
+        font-family: var(--font-text);
+        font-size: clamp(16px, 1.5vw, 19px);
+        color: var(--dark);
+        opacity: 0.72;
+        line-height: 1.6;
+        max-width: 420px;
+        margin: 0;
+    }
+
+    /* CTAs */
+    .hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 18px;
+        padding: 10px 32px;
+        border-radius: 100px;
+        border: 3px solid var(--dark);
+        text-decoration: none;
+        box-shadow: 5px 5px 0 var(--dark);
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0 var(--dark);
+    }
+
+    .btn-primary {
+        background: var(--yellow);
+        color: var(--dark);
+    }
+
+    .btn-secondary {
+        background: var(--pink);
+        color: var(--cream);
+    }
+
+    /* Stats */
+    .hero-stats {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-top: 4px;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .stat-num {
+        font-family: var(--font-display);
+        font-size: 28px;
+        color: var(--dark);
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-family: var(--font-text);
+        font-size: 12px;
+        color: var(--dark);
+        opacity: 0.55;
+    }
+
+    .stat-divider {
+        width: 1.5px;
+        height: 36px;
+        background: var(--dark);
+        opacity: 0.2;
+        border-radius: 2px;
+        flex-shrink: 0;
+    }
+
+    /* ── Columna visual ── */
+    .hero-visual {
+        position: relative;
+        height: 540px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    /* Tags flotantes */
+    .floating-tag {
+        position: absolute;
+        font-family: var(--font-display);
+        font-size: 14px;
+        color: var(--dark);
+        background: white;
+        border: 2.5px solid var(--dark);
+        border-radius: 12px;
+        padding: 8px 16px;
+        box-shadow: 3px 3px 0 var(--dark);
+        white-space: nowrap;
+        z-index: 3;
+        opacity: 0;
+    }
+
+    .tag-brand {
+        top: 60px;
+        right: 20px;
+        background: var(--orange);
+        color: white;
+        transform: rotate(2deg);
+    }
+
+    .tag-dev {
+        top: 170px;
+        left: 10px;
+        transform: rotate(-3deg);
+    }
+
+    .tag-ui {
+        top: 280px;
+        right: 15px;
+        transform: rotate(1.5deg);
+    }
+
+    /* Mascota */
+    .mascot-wrap {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .mascot-img {
+        width: 320px;
+        height: auto;
+        display: block;
+        filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.15));
+    }
+
+    /* ── Ola inferior ── */
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        line-height: 0;
+    }
+
+    .hero-wave svg {
+        display: block;
+        width: 100%;
+        height: 80px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .hero-inner {
+            grid-template-columns: 1fr;
+            padding: 100px 6% 100px;
+            text-align: center;
+        }
+
+        .hero-text {
+            align-items: center;
+            order: 2;
+        }
+
+        .hero-visual {
+            order: 1;
+            height: 300px;
+        }
+
+        .hero-badge {
+            margin: 0 auto;
+        }
+
+        .hero-sub {
+            max-width: 100%;
+        }
+
+        .hero-stats {
+            justify-content: center;
+        }
+
+        .hero-headline {
+            align-items: center;
+        }
+
+        .mascot-img {
+            width: 200px;
+        }
+
+        .floating-tag {
+            display: none;
+        }
+    }
 </style>
 
-<style>
-  .hero {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 120px 5% 0;
-    background: var(--blue);
-  }
+<script>
+    import { gsap } from "gsap";
 
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
-    animation: float 20s ease-in-out infinite;
-    pointer-events: none;
-  }
+    // ── Dot Grid animado con parallax de mouse ──────────────────────
+    const canvas = document.getElementById("dot-grid") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d")!;
 
-  .blob-1 {
-    width: 500px;
-    height: 500px;
-    background: var(--orange);
-    top: 10%;
-    left: -10%;
-    animation-delay: 0s;
-  }
+    const DOT_SPACING = 28;
+    const DOT_RADIUS = 1.5;
+    const DOT_COLOR = "rgba(0,0,0,0.13)";
+    const MAX_OFFSET = 6; // px máximo de desplazamiento por parallax
 
-  .blob-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--cream);
-    bottom: 10%;
-    right: -5%;
-    animation-delay: -5s;
-  }
+    let mouse = { x: 0, y: 0 };
+    let target = { x: 0, y: 0 };
+    let current = { x: 0, y: 0 };
 
-  .blob-3 {
-    width: 350px;
-    height: 350px;
-    background: var(--pink);
-    top: 50%;
-    right: 20%;
-    animation-delay: -10s;
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    33% {
-      transform: translate(50px, -50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-30px, 30px) scale(0.9);
-    }
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-    justify-content: center;
-  }
-
-  .hero-btn {
-    background: white;
-    border: 4px solid var(--dark);
-    font-family: "Fredoka One", cursive;
-    text-decoration: none;
-    border-radius: 30px;
-    padding: 1rem 2rem;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    position: relative;
-    box-shadow: 8px 8px 0 var(--dark);
-  }
-
-  .hero-btn.primary {
-    background: var(--yellow);
-    color: var(--dark);
-  }
-
-  .hero-btn.secondary {
-    background: var(--pink);
-    color: var(--cream);
-  }
-
-  .hero-btn:hover {
-    transform: translateY(-15px) rotate(-2deg);
-    box-shadow: 12px 12px 0 var(--dark);
-  }
-
-  /* Responsive: stack buttons on small screens */
-  @media (max-width: 900px) {
-    .hero-buttons {
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .hero-btn {
-      width: 100%;
-      text-align: center;
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
     }
 
-  }
+    function drawDots(offsetX: number, offsetY: number) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = DOT_COLOR;
 
-  .hero-content {
-    max-width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 8rem; /* Add space between character and logo */
-    z-index: 1;
-  }
+        const cols = Math.ceil(canvas.width / DOT_SPACING) + 2;
+        const rows = Math.ceil(canvas.height / DOT_SPACING) + 2;
 
-  /* Adjust logo and character sizing for side-by-side layout */
-  .brand-logo {
-    max-width: 360px;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    display: block;
-    animation: fadeInUp 0.8s ease-out 0.3s both;
-  }
-
-  .character-container {
-    max-width: 300px;
-    width: 100%;
-    height: 400px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
-  }
-
-  /* Responsive: stack on small screens */
-  @media (max-width: 900px) {
-    .hero-content {
-      flex-direction: column-reverse;
-      margin-top: 6rem;
-      gap: 0rem;
-    }
-    .character-container {
-      height: 200px;
-      max-width: 150px;
-    }
-    .brand-logo {
-      max-width: 300px;
-    }
-  }
-
-  .maguito {
-    width: 100%;
-    height: auto;
-    animation: bounce 3s ease-in-out infinite;
-    padding-bottom: 20px;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Contenedor del personaje */
-  .character-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Ondas detrás del círculo - ahora ocupan todo el ancho */
-  .wave-dark {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    z-index: 1;
-  }
-
-  .wave-orange {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    z-index: 0;
-  }
-
-  .character-circle {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    background: var(--cream);
-    border-radius: 50%;
-    border: 5px solid var(--pink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    overflow: visible;
-  }
-
-  /* SVG del maguito */
-  .maguito-svg {
-    width: 70%;
-    height: auto;
-    position: relative;
-    z-index: 1;
-    animation: bounce 3s ease-in-out infinite;
-  }
-
-  .maguito-svg img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .character-circle {
-      width: 250px;
-      height: 250px;
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = c * DOT_SPACING + offsetX;
+                const y = r * DOT_SPACING + offsetY;
+                ctx.beginPath();
+                ctx.arc(x, y, DOT_RADIUS, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
     }
 
-    .character-container {
-      height: 350px;
+    function animateGrid() {
+        // Lerp suave hacia el target
+        current.x += (target.x - current.x) * 0.05;
+        current.y += (target.y - current.y) * 0.05;
+        drawDots(current.x % DOT_SPACING, current.y % DOT_SPACING);
+        requestAnimationFrame(animateGrid);
     }
 
-    .wave-dark,
-    .wave-orange {
-      width: 200%;
-    }
-  }
-</style>
+    window.addEventListener("mousemove", (e) => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        target.x = ((e.clientX - cx) / cx) * MAX_OFFSET;
+        target.y = ((e.clientY - cy) / cy) * MAX_OFFSET;
+    });
+
+    resizeCanvas();
+    animateGrid();
+    window.addEventListener("resize", resizeCanvas);
+
+    // ── GSAP Entrada ────────────────────────────────────────────────
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Badge
+    tl.fromTo(
+        "#hero-badge",
+        { opacity: 0, y: -16 },
+        { opacity: 1, y: 0, duration: 0.5 },
+    );
+
+    // Headline línea por línea
+    tl.fromTo(
+        ".hero-headline .line",
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.12 },
+        "-=0.2",
+    );
+
+    // Sub
+    tl.fromTo(
+        "#hero-sub",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5 },
+        "-=0.2",
+    );
+
+    // CTAs
+    tl.fromTo(
+        "#hero-ctas .btn",
+        { opacity: 0, y: 16, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.1 },
+        "-=0.2",
+    );
+
+    // Stats
+    tl.fromTo(
+        "#hero-stats .stat, #hero-stats .stat-divider",
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.07 },
+        "-=0.15",
+    );
+
+    // Mascota entra desde abajo
+    tl.fromTo(
+        "#mascot-wrap",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "back.out(1.4)" },
+        "-=0.8",
+    );
+
+    // Tags aparecen con stagger
+    tl.fromTo(
+        [" #tag-1", "#tag-2", "#tag-3"],
+        { opacity: 0, scale: 0.8 },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            stagger: 0.15,
+            ease: "back.out(1.6)",
+        },
+        "-=0.3",
+    );
+
+    // ── Float loop de los tags ──────────────────────────────────────
+    gsap.to("#tag-1", {
+        y: -10,
+        rotation: 3,
+        duration: 2.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 0.2,
+    });
+    gsap.to("#tag-2", {
+        y: -8,
+        rotation: -2,
+        duration: 3.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 0.8,
+    });
+    gsap.to("#tag-3", {
+        y: -12,
+        rotation: 2,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1.4,
+    });
+
+    // ── Bounce suave de la mascota en loop ──────────────────────────
+    gsap.to("#mascot-wrap", {
+        y: -12,
+        duration: 2.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1.2,
+    });
+</script>

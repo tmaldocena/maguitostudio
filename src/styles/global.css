@@ -31,6 +31,19 @@
   --pink: #E95B6F;
   --font-display: 'Fredoka One', system-ui;
   --font-text: 'Teachers Variable', sans-serif;
+  --shadow-offset: 8px 8px 0 var(--dark);
+  --shadow-offset-hover: 12px 12px 0 var(--dark);
+  --border-thick: 4px solid var(--dark);
+}
+
+.cartoon-shadow {
+  box-shadow: var(--shadow-offset);
+  border: var(--border-thick);
+}
+
+.cartoon-shadow:hover {
+  box-shadow: var(--shadow-offset-hover);
+  transform: translateY(-4px) rotate(-1deg);
 }
 
 body {

@@ -1,126 +1,785 @@
 ---
 // src/components/Portfolio.astro
+// Requiere: npm install gsap (ya instalado desde Hero)
 ---
 
-<section class="py-32 px-[5%] bg-(--cream) fade-in font-text" id="portfolio">
-  <div class="text-center mb-16">
-    <h2 class="font-display text-[clamp(2.5rem,5vw,4rem)] font-normal mb-4 text-(--dark)">
-      Portfolio
+<section
+  class="portfolio-section"
+  id="portfolio"
+  aria-label="Portfolio de proyectos"
+>
+  <div class="portfolio-header">
+    <div class="section-badge" id="portfolio-badge">
+      <span class="badge-dot"></span>
+      Proyectos seleccionados
+    </div>
+    <h2 class="portfolio-title" id="portfolio-title">
+      Marcas con carácter<br />
+      <em class="title-accent">y código con criterio.</em>
     </h2>
-    <p class="text-(--dark) text-[1.3rem] opacity-70 font-medium">
-      Últimos proyectos trabajados para nuestros clientes.
+    <p class="portfolio-sub" id="portfolio-sub">
+      Últimos proyectos para nuestros clientes.
     </p>
   </div>
 
-  <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-    
-    <a href="https://www.instagram.com/maguito.std/p/DQNI6kGErEk/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
-      <!-- Background pattern animado -->
-      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./esteban-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
-      
-      <!-- Overlay oscuro -->
-      <div class="absolute inset-0 bg-linear-to-br from-(--secondary) to-(--orange) opacity-80"></div>
-      
-      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
-      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
-        <img src="./esteban-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
-        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
-          Lic. Esteban C.
-        </h3>
-        <p class="text-(--cream) text-[1.1rem] font-text text-center">
-          Branding
+  <!-- FILA 1: Webs (2 cards iguales) -->
+  <div class="bento-grid" id="bento-grid">
+    <a
+      href="https://portfolio-template-tmaldocena.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-web"
+      id="card-web-1"
+      aria-label="Ver proyecto Prisma — Portfolio Template"
+    >
+      <div class="browser-bar" aria-hidden="true">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <div
+        class="screenshot"
+        style="background-image: url('/assets/prisma.png');"
+        role="img"
+        aria-label="Captura del sitio Prisma"
+      >
+      </div>
+
+      <!-- Gradiente base siempre visible -->
+      <div class="web-gradient" aria-hidden="true"></div>
+
+      <!-- Info siempre visible abajo -->
+      <div class="web-static">
+        <span class="web-tag">✦ Diseño + Frontend</span>
+        <h3 class="web-title">Prisma</h3>
+        <p class="web-sub">Portfolio Template</p>
+      </div>
+
+      <!-- Panel hover que sube -->
+      <div class="web-hover-panel" aria-hidden="true">
+        <p class="web-desc">
+          Template de portfolio para creativos y desarrolladores. Diseño oscuro,
+          tipografía expresiva y animaciones de entrada.
         </p>
+        <span class="demo-btn">Ver demo ↗</span>
       </div>
     </a>
 
-    <a href="https://www.instagram.com/maguito.std/p/DPXGlqlEWDa/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
-      <!-- Background pattern animado -->
-      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./del-pilar-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
-      
-      <!-- Overlay oscuro -->
-      <div class="absolute inset-0 bg-linear-to-br from-(--orange) to-var(--pink) opacity-80"></div>
-      
-      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
-      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
-        <img src="./del-pilar-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
-        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
-          Studio Del Pilar
-        </h3>
-        <p class="text-(--cream) text-[1.1rem] font-text text-center">
-          Branding
+    <a
+      href="https://saint-louis-realestate.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-web"
+      id="card-web-2"
+      aria-label="Ver proyecto St. Louis Real Estate"
+    >
+      <div class="browser-bar" aria-hidden="true">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <div
+        class="screenshot"
+        style="background-image: url('/assets/saintlouis.png');"
+        role="img"
+        aria-label="Captura del sitio Saint Louis Real Estate"
+      >
+      </div>
+
+      <!-- Gradiente base siempre visible -->
+      <div class="web-gradient" aria-hidden="true"></div>
+
+      <!-- Info siempre visible abajo -->
+      <div class="web-static">
+        <span class="web-tag">✦ Dev</span>
+        <h3 class="web-title">St. Louis Real Estate</h3>
+        <p class="web-sub">Catálogo inmobiliario</p>
+      </div>
+
+      <!-- Panel hover que sube -->
+      <div class="web-hover-panel" aria-hidden="true">
+        <p class="web-desc">
+          Sitio de propiedades premium con filtros por zona, tipo y precio.
+          Diseño elegante orientado a conversión.
         </p>
+        <span class="demo-btn">Ver demo ↗</span>
       </div>
     </a>
 
-    <a href="https://www.instagram.com/maguito.std/p/DNlc9izx80U/" target="_blank" class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
-      <!-- Background pattern animado -->
-      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./laplume-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
-      
-      <!-- Overlay oscuro -->
-      <div class="absolute inset-0 bg-linear-to-br from-(--pink) to-(--orange) opacity-80"></div>
-      
-      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
-      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
-        <img src="./laplume-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
-        <h3 class="font-display text-2xl mb-2 text-(--cream) text-center">
-          Editorial La Plume
-        </h3>
-        <p class="text-(--cream) text-[1.1rem] font-text text-center">
-          Branding
-        </p>
+    <!-- FILA 2: Brandings (4 cards iguales) -->
+
+    <a
+      href="https://www.instagram.com/maguito.std/p/DQNI6kGErEk/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-brand"
+      id="card-brand-1"
+      aria-label="Ver proyecto de branding Lic. Esteban C."
+    >
+      <div
+        class="brand-bg"
+        style="background-image: url('./esteban-icon.svg');"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="brand-grad"
+        style="background: linear-gradient(135deg, #5BB8F5 0%, #FF6B35 100%);"
+      >
+      </div>
+      <div class="brand-content">
+        <img
+          src="./esteban-icon.svg"
+          alt="Logo Lic. Esteban C."
+          class="brand-icon"
+          width="52"
+          height="52"
+          loading="lazy"
+        />
+        <h3 class="brand-name">Lic. Esteban C.</h3>
+        <p class="brand-cat">Identidad visual</p>
+        <div class="brand-chips" aria-hidden="true">
+          <span class="chip" style="background:#5BB8F5"></span>
+          <span class="chip" style="background:#FF6B35"></span>
+          <span class="chip" style="background:#fff"></span>
+        </div>
       </div>
     </a>
 
-    <a href="https://www.instagram.com/maguito.std/p/DOEnxRWkZ67/" target="_blank"  class="group relative rounded-[30px] overflow-hidden aspect-video border-4 border-(--dark) cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] shadow-[8px_8px_0_var(--dark)] hover:-translate-y-2.5 hover:rotate-2 hover:shadow-[12px_12px_0_var(--dark)]">
-      <!-- Background pattern animado -->
-      <div class="absolute inset-0 opacity-10 md:opacity-20 animate-slide-bg" style="background-image: url('./massa-vera-icon.svg'); background-size: 100px 100px; background-repeat: repeat; background-position: 0 0;"></div>
-      
-      <!-- Overlay oscuro -->
-      <div class="absolute inset-0 bg-linear-to-br from-(--yellow) to-(--secondary) opacity-80"></div>
-      
-      <!-- Contenido - siempre visible en mobile, solo en hover en desktop -->
-      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
-        <img src="./massa-vera-icon.svg" alt="icono" class="w-16 h-16 mb-4 invert" />
-        <h3 class="font-display text-2xl mb-2 text-(--cream) font-normal text-center">
-          La Massa Vera
-        </h3>
-        <p class="text-(--cream)  text-[1.1rem] font-medium text-center">
-          Branding
-        </p>
+    <a
+      href="https://www.instagram.com/maguito.std/p/DPXGlqlEWDa/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-brand"
+      id="card-brand-2"
+      aria-label="Ver proyecto de branding Studio Del Pilar"
+    >
+      <div
+        class="brand-bg"
+        style="background-image: url('./del-pilar-icon.svg');"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="brand-grad"
+        style="background: linear-gradient(135deg, #FF6B35 0%, #E91E8C 100%);"
+      >
+      </div>
+      <div class="brand-content">
+        <img
+          src="./del-pilar-icon.svg"
+          alt="Logo Studio Del Pilar"
+          class="brand-icon"
+          width="52"
+          height="52"
+          loading="lazy"
+        />
+        <h3 class="brand-name">Studio Del Pilar</h3>
+        <p class="brand-cat">Identidad visual</p>
+        <div class="brand-chips" aria-hidden="true">
+          <span class="chip" style="background:#FF6B35"></span>
+          <span class="chip" style="background:#E91E8C"></span>
+          <span class="chip" style="background:#fff"></span>
+        </div>
       </div>
     </a>
 
+    <a
+      href="https://www.instagram.com/maguito.std/p/DNlc9izx80U/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-brand"
+      id="card-brand-3"
+      aria-label="Ver proyecto de branding Editorial La Plume"
+    >
+      <div
+        class="brand-bg"
+        style="background-image: url('./laplume-icon.svg');"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="brand-grad"
+        style="background: linear-gradient(135deg, #E91E8C 0%, #FF6B35 100%);"
+      >
+      </div>
+      <div class="brand-content">
+        <img
+          src="./laplume-icon.svg"
+          alt="Logo Editorial La Plume"
+          class="brand-icon"
+          width="52"
+          height="52"
+          loading="lazy"
+        />
+        <h3 class="brand-name">Editorial La Plume</h3>
+        <p class="brand-cat">Identidad visual</p>
+        <div class="brand-chips" aria-hidden="true">
+          <span class="chip" style="background:#E91E8C"></span>
+          <span class="chip" style="background:#111"></span>
+          <span class="chip" style="background:#fff"></span>
+        </div>
+      </div>
+    </a>
+
+    <a
+      href="https://www.instagram.com/maguito.std/p/DOEnxRWkZ67/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card card-brand"
+      id="card-brand-4"
+      aria-label="Ver proyecto de branding La Massa Vera"
+    >
+      <div
+        class="brand-bg"
+        style="background-image: url('./massa-vera-icon.svg');"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="brand-grad"
+        style="background: linear-gradient(135deg, #F5D840 0%, #5BB8F5 100%);"
+      >
+      </div>
+      <div class="brand-content">
+        <img
+          src="./massa-vera-icon.svg"
+          alt="Logo La Massa Vera"
+          class="brand-icon"
+          width="52"
+          height="52"
+          loading="lazy"
+        />
+        <h3 class="brand-name">La Massa Vera</h3>
+        <p class="brand-cat">Identidad visual</p>
+        <div class="brand-chips" aria-hidden="true">
+          <span class="chip" style="background:#F5D840"></span>
+          <span class="chip" style="background:#5BB8F5"></span>
+          <span class="chip" style="background:#111"></span>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
 
 <style>
-  .fade-in {
+  /* ── Sección ── */
+  .portfolio-section {
+    padding: 96px 5%;
+    background: var(--cream);
+  }
+
+  /* ── Header ── */
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 2.5px solid var(--dark);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--dark);
+    box-shadow: 3px 3px 0 var(--dark);
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .badge-dot {
+    width: 9px;
+    height: 9px;
+    background: var(--orange);
+    border-radius: 50%;
+    border: 1.5px solid var(--dark);
+    flex-shrink: 0;
   }
 
-  @keyframes slide-bg {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 200px 200px;
-    }
+  .portfolio-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--dark);
+    line-height: 1.15;
+    margin: 0;
   }
 
-  .animate-slide-bg {
+  .title-accent {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .portfolio-sub {
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    color: var(--dark);
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  /* ── Grid bento ── */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── Card base ── */
+  .card {
+    border: 3.5px solid var(--dark);
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    box-shadow: 7px 7px 0 var(--dark);
+    opacity: 0;
+    transition:
+      transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-6px) rotate(0.4deg);
+    box-shadow: 12px 12px 0 var(--dark);
+  }
+
+  /* ── Web cards ── */
+  .card-web {
+    grid-column: span 2;
+    min-height: 320px;
+  }
+
+  .browser-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: white;
+    border-bottom: 2.5px solid var(--dark);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+    z-index: 3;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--dark);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .dot-r {
+    background: #ff5f56;
+  }
+  .dot-y {
+    background: #ffbd2e;
+  }
+  .dot-g {
+    background: #27c93f;
+  }
+
+  .screenshot {
+    position: absolute;
+    inset: 0;
+    top: 28px;
+    background-size: cover;
+    background-position: top center;
+    background-color: #1a1a2e;
+    transition: transform 0.5s ease;
+  }
+
+  .card-web:hover .screenshot {
+    transform: scale(1.04);
+  }
+
+  /* Gradiente permanente */
+  .web-gradient {
+    position: absolute;
+    inset: 0;
+    top: 28px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Info siempre visible */
+  .web-static {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 0 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .web-tag {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 100px;
+    padding: 3px 14px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--dark);
+    box-shadow: 2px 2px 0 var(--dark);
+    width: fit-content;
+  }
+
+  .web-title {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: white;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .web-sub {
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+  }
+
+  /* Panel hover — empieza oculto debajo */
+  .web-hover-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .web-desc {
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .demo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--orange);
+    color: white;
+    border: 2.5px solid var(--dark);
+    border-radius: 100px;
+    padding: 8px 24px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--dark);
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  /* ── Brand cards ── */
+  .card-brand {
+    grid-column: span 1;
+    aspect-ratio: 1 / 1;
+  }
+
+  .brand-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    background-size: 72px 72px;
     animation: slide-bg 3s linear infinite;
   }
 
-  @media (max-width: 768px) {
-    .grid {
+  @keyframes slide-bg {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 144px 144px;
+    }
+  }
+
+  .brand-grad {
+    position: absolute;
+    inset: 0;
+    opacity: 0.88;
+  }
+
+  .brand-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .brand-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    filter: invert(1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card-brand:hover .brand-icon {
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .brand-cat {
+    font-family: var(--font-text);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .brand-chips {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .chip {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    display: inline-block;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .card-web {
+      grid-column: span 2;
+    }
+    .card-brand {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .portfolio-section {
+      padding: 72px 5%;
+    }
+    .bento-grid {
       grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card-web {
+      grid-column: span 1;
+      min-height: 240px;
+    }
+    .card-brand {
+      grid-column: span 1;
+      aspect-ratio: 4 / 3;
+    }
+    .web-title {
+      font-size: 1.5rem;
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Header: badge → título → sub ──────────────────────────────
+  const headerTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#portfolio",
+      start: "top 80%",
+      once: true,
+    },
+  });
+
+  headerTl
+    .fromTo(
+      "#portfolio-badge",
+      { opacity: 0, y: -14 },
+      { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+    )
+    .fromTo(
+      "#portfolio-title",
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+      "-=0.2",
+    )
+    .fromTo(
+      "#portfolio-sub",
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+      "-=0.2",
+    );
+
+  // ── Webs: entran desde abajo con stagger ─────────────────────
+  gsap.fromTo(
+    [" #card-web-1", "#card-web-2"],
+    { opacity: 0, y: 50, scale: 0.97 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.65,
+      stagger: 0.12,
+      ease: "back.out(1.3)",
+      scrollTrigger: {
+        trigger: "#bento-grid",
+        start: "top 82%",
+        once: true,
+      },
+    },
+  );
+
+  // ── Brandings: entran con stagger después de las webs ────────
+  gsap.fromTo(
+    ["#card-brand-1", "#card-brand-2", "#card-brand-3", "#card-brand-4"],
+    { opacity: 0, y: 40, scale: 0.95 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.55,
+      stagger: 0.1,
+      ease: "back.out(1.4)",
+      scrollTrigger: {
+        trigger: "#bento-grid",
+        start: "top 70%",
+        once: true,
+      },
+    },
+  );
+
+  // ── Hover panel en web cards ─────────────────────────────────
+  document.querySelectorAll<HTMLElement>(".card-web").forEach((card) => {
+    const staticInfo = card.querySelector<HTMLElement>(".web-static");
+    const hoverPanel = card.querySelector<HTMLElement>(".web-hover-panel");
+
+    card.addEventListener("mouseenter", () => {
+      // Info estática sube un poco
+      gsap.to(staticInfo, {
+        y: -8,
+        opacity: 0,
+        duration: 0.28,
+        ease: "power2.in",
+      });
+      // Screenshot zoom
+      gsap.to(card.querySelector(".screenshot"), {
+        scale: 1.06,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      // Panel hover sube desde abajo
+      gsap.fromTo(
+        hoverPanel,
+        { y: 40, opacity: 0, pointerEvents: "none" },
+        {
+          y: 0,
+          opacity: 1,
+          pointerEvents: "auto",
+          duration: 0.38,
+          ease: "power3.out",
+          delay: 0.05,
+        },
+      );
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(staticInfo, {
+        y: 0,
+        opacity: 1,
+        duration: 0.32,
+        ease: "power2.out",
+      });
+      gsap.to(card.querySelector(".screenshot"), {
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+      gsap.to(hoverPanel, {
+        y: 40,
+        opacity: 0,
+        pointerEvents: "none",
+        duration: 0.25,
+        ease: "power2.in",
+      });
+    });
+  });
+
+  // ── Hover magnético en brand cards ───────────────────────────
+  document.querySelectorAll<HTMLElement>(".card-brand").forEach((card) => {
+    card.addEventListener("mousemove", (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      gsap.to(card, {
+        rotateX: -dy * 6,
+        rotateY: dx * 6,
+        duration: 0.3,
+        ease: "power2.out",
+        transformPerspective: 600,
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        rotateX: 0,
+        rotateY: 0,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.5)",
+      });
+    });
+  });
+</script>

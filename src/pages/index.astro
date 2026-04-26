@@ -35,9 +35,9 @@ import Footer from '../components/Footer.astro';
   <!-- Web App Manifest (Android) -->
   <link rel="manifest" href="./manifest.json">
 
-  <title>Maguito Studio - Estudio Creativo | Diseño Web y Branding</title>
-  <meta name="description" content="Creamos experiencias digitales memorables que conectan marcas con personas. Diseño web, branding, UI/UX y estrategia digital.">
-  <meta name="keywords" content="diseño web, branding, estudio creativo, UI UX, diseño gráfico, estrategia digital">
+  <title>Diseño UI/UX y Desarrollo Web para Startups | Maguito Studio</title>
+  <meta name="description" content="Escalá tu producto con un perfil híbrido. Branding y Frontend en React/Astro. De la idea al código en un solo paso. Diseño con carácter en San Luis.">
+  <meta name="keywords" content="estudio de branding para startups argentina, desarrollo web astro react, diseño ui ux argentina, maguito studio san luis">
   <meta name="author" content="Maguito Studio">
   <meta name="robots" content="index, follow">
   <meta name="language" content="es">  
@@ -45,8 +45,8 @@ import Footer from '../components/Footer.astro';
     <!-- Open Graph (redes sociales) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://maguitostudio.vercel.app">
-  <meta property="og:title" content="Maguito Studio - Estudio Creativo">
-  <meta property="og:description" content="Creamos experiencias digitales memorables que conectan marcas con personas.">
+  <meta property="og:title" content="Diseño UI/UX y Desarrollo Web para Startups | Maguito">
+  <meta property="og:description" content="Escalá tu producto con un perfil híbrido. Branding y Frontend en React/Astro. De la idea al código en un solo paso.">
   <meta property="og:image" content="https://maguitostudio.vercel.app/og-image.png">
   <meta property="og:site_name" content="Maguito Studio">
   <meta property="og:locale" content="es_ES">
@@ -54,8 +54,8 @@ import Footer from '../components/Footer.astro';
     <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://maguitostudio.vercel.app">
-  <meta name="twitter:title" content="Maguito Studio - Estudio Creativo">
-  <meta name="twitter:description" content="Creamos experiencias digitales memorables que conectan marcas con personas.">
+  <meta name="twitter:title" content="Maguito Studio - Perfil Híbrido Genuino">
+  <meta name="twitter:description" content="Branding, UI/UX y Frontend en un solo lugar. De la idea al código sin intermediarios.">
   <meta name="twitter:image" content="https://maguitostudio.vercel.app/og-image.png">
   
   <!-- Canonical URL -->
@@ -65,14 +65,21 @@ import Footer from '../components/Footer.astro';
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "name": "Maguito Studio",
-    "description": "Estudio Creativo - Diseño Web y Branding",
+    "description": "Estudio creativo con una pizca de magia. Diseño y código bajo el mismo techo: branding, UI/UX y frontend.",
     "url": "https://maguitostudio.vercel.app",
     "image": "https://maguitostudio.vercel.app/og-image.png",
+    "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "San Luis",
       "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.3017,
+      "longitude": -66.3378
     },
     "contact": {
       "@type": "ContactPoint",
@@ -80,7 +87,8 @@ import Footer from '../components/Footer.astro';
       "email": "maguito.std@gmail.com"
     },
     "sameAs": [
-      "https://www.instagram.com/maguito.std/"
+      "https://www.instagram.com/maguito.std/",
+      "https://www.behance.net/maguitostudio"
     ]
   }
   </script>
@@ -129,12 +137,14 @@ import Footer from '../components/Footer.astro';
 </head>
 <body>
   <Header />
-  <Hero />
-  <About />
-  <Services />
-  <Portfolio />
-  <Packs />
-  <ContactForm />
+  <main role="main">
+    <Hero />
+    <About />
+    <Services />
+    <Portfolio />
+    <Packs />
+    <ContactForm />
+  </main>
   <Footer />
   <Modal />
 
