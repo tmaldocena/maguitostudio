@@ -1,0 +1,287 @@
+---
+// src/pages/links.astro
+// Colocá tu PDF en public/documento.pdf y actualizá el href del botón
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Links — Maguito Studio</title>
+        <meta
+            name="description"
+            content="Descargá el documento de Maguito Studio."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="icon" href="/favicon.ico" />
+        <!-- Evitamos que esta página aparezca en Google -->
+    </head>
+
+    <body>
+        <main class="page">
+            <!-- Formas decorativas -->
+            <div class="shape shape-star" aria-hidden="true">✦</div>
+            <div class="shape shape-circle" aria-hidden="true"></div>
+            <div class="shape shape-ring" aria-hidden="true"></div>
+
+            <div class="card" id="links-card">
+                <!-- Logo -->
+                <img
+                    src="/maguito-logotipo.svg"
+                    alt="Maguito Studio"
+                    class="logo"
+                    width="200"
+                    loading="eager"
+                />
+
+                <p class="eyebrow">Te dejo algo por acá 👇</p>
+
+                <!-- Botón descarga -->
+                <a
+                    href="/cuidar-tu-marca-maguitostudio.pdf"
+                    download
+                    class="btn-download"
+                    id="btn-download"
+                    aria-label="Descargar documento de Maguito Studio"
+                >
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M12 15V3"></path>
+                        <path d="M7 10l5 5 5-5"></path>
+                        <path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"
+                        ></path>
+                    </svg>
+                    Descargar documento
+                </a>
+
+                <!-- Volver al home -->
+                <a
+                    href="https://www.maguitostudio.com.ar"
+                    class="home-link"
+                    aria-label="Ir al sitio de Maguito Studio"
+                >
+                    ← Volver a maguitostudio.com.ar
+                </a>
+            </div>
+        </main>
+    </body>
+</html>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@400;600&display=swap");
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --blue: #79bce8;
+        --orange: #f18652;
+        --cream: #fefefc;
+        --dark: #2c2c2c;
+        --font-display: "Fredoka One", sans-serif;
+        --font-text: "Fredoka", sans-serif;
+    }
+
+    body {
+        background: var(--blue);
+        min-height: 100dvh;
+        font-family: var(--font-text);
+        overflow: hidden;
+    }
+
+    /* ── Fondo dot grid ── */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.1) 1.5px,
+            transparent 1.5px
+        );
+        background-size: 28px 28px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* ── Formas decorativas (mismas que el Hero) ── */
+    .shape {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.18;
+    }
+
+    .shape-star {
+        font-family: var(--font-display);
+        font-size: 52px;
+        color: var(--dark);
+        top: 10%;
+        right: 7%;
+        animation: spin-slow 20s linear infinite;
+    }
+
+    .shape-circle {
+        width: 80px;
+        height: 80px;
+        border: 5px solid var(--dark);
+        border-radius: 50%;
+        bottom: 20%;
+        left: 5%;
+        animation: float-shape 8s ease-in-out infinite;
+    }
+
+    .shape-ring {
+        width: 48px;
+        height: 48px;
+        border: 4px solid var(--orange);
+        border-radius: 50%;
+        top: 30%;
+        left: 8%;
+        animation: float-shape 6s ease-in-out infinite reverse;
+    }
+
+    @keyframes spin-slow {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes float-shape {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-16px);
+        }
+    }
+
+    /* ── Layout ── */
+    .page {
+        position: relative;
+        z-index: 2;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+    }
+
+    /* ── Card central ── */
+    .card {
+        background: var(--cream);
+        border: 3.5px solid var(--dark);
+        border-radius: 32px;
+        box-shadow: 8px 8px 0 var(--dark);
+        padding: 48px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+        max-width: 420px;
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    /* ── Logo ── */
+    .logo {
+        width: 180px;
+        height: auto;
+        display: block;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+        font-family: var(--font-text);
+        font-size: 1rem;
+        color: var(--dark);
+        opacity: 0.6;
+        text-align: center;
+    }
+
+    /* ── Botón descarga ── */
+    .btn-download {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--orange);
+        color: white;
+        border: 3px solid var(--dark);
+        border-radius: 100px;
+        padding: 14px 32px;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        text-decoration: none;
+        box-shadow: 5px 5px 0 var(--dark);
+        width: 100%;
+        transition:
+            transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+            box-shadow 0.15s ease;
+    }
+
+    .btn-download:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0 var(--dark);
+    }
+
+    .btn-download:active {
+        transform: translate(1px, 1px);
+        box-shadow: 3px 3px 0 var(--dark);
+    }
+
+    /* ── Link home ── */
+    .home-link {
+        font-family: var(--font-text);
+        font-size: 0.9rem;
+        color: var(--dark);
+        opacity: 0.55;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .home-link:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+        .card {
+            padding: 36px 24px;
+        }
+        .logo {
+            width: 150px;
+        }
+    }
+</style>
+
+<script>
+    // Entrada suave sin GSAP (página standalone, no importa el bundle del sitio)
+    const card = document.getElementById("links-card");
+    if (card) {
+        requestAnimationFrame(() => {
+            card.style.transition =
+                "opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.34,1.56,0.64,1)";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        });
+    }
+</script>
